@@ -3,7 +3,7 @@
         <h2>
             How to Set Launch Options
         </h2>
-        <v-stepper dark non-linear>
+        <v-stepper dark non-linear >
             <v-stepper-header>
                 <v-stepper-step editable step="1">Properties</v-stepper-step>
                 <v-divider></v-divider>
@@ -63,5 +63,8 @@ export default {
 #img1, #img2 {
     float: left;
     margin-right: 1em;
+}
+.theme--dark.v-stepper {
+    background: #3B3E54;
 }
 </style>
