@@ -17,7 +17,7 @@
                     <v-btn
                         color="green darken-1"
                         text
-                        @click="copyDialog = false"
+                        @click="copyDone"
                     >
                         OK
                     </v-btn>
@@ -416,6 +416,11 @@ export default {
             console.error('Async: Could not copy text: ', err);
             });
             this.copyDialog = true
+        },
+        copyDone () {
+            var elmnt = document.getElementById("content1");
+            elmnt.scrollIntoView({behavior: 'smooth', block: 'end'});
+            this.copyDialog = false;
         }
     }
 }

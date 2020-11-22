@@ -1,5 +1,5 @@
 <template>
-    <div id="content">
+    <div id="content1">
         <h2>
             How to Set Launch Options
         </h2>
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style scoped>
-#content {
+#content1 {
     background: #22223B;
     width: 70%;
     border-radius: 15px;
@@ -46,7 +46,7 @@ export default {
     text-align: left;
 }
 
-#content > h2 {
+#content1 > h2 {
     color: white;
     text-align: center;
     font-size: 36px;
@@ -59,7 +59,7 @@ export default {
     margin-left: 3em;
 }
 @media screen and (max-width: 1500px) {
-    #content {
+    #content1 {
         width: 90%;
     }
 }
