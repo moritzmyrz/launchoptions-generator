@@ -239,8 +239,15 @@
                 </v-tooltip>
             </span>
 
+
+
+
+
+
+
+
             <span class="txt-input">
-                <v-combobox v-model="tickrate" dark :items="tickrates" :label="`-tickrate ${tickrate}`" value="" @input="updateData"></v-combobox>
+                <v-combobox v-model="tickrate" dark :items="tickrates" :label="`-tickrate ${tickrate}`" value="" @input="updateData" clearable></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -249,7 +256,7 @@
                 </v-tooltip>
             </span>
             <span class="txt-input">
-                <v-combobox v-model="refresh" dark :items="refreshrates" :label="`-refresh ${refresh}`" value="" @input="updateData"></v-combobox>
+                <v-combobox v-model="refresh" dark :items="refreshrates" :label="`-refresh ${refresh}`" value="" @input="updateData" clearable></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -258,7 +265,7 @@
                 </v-tooltip>
             </span>
             <span class="txt-input">
-                <v-text-field v-model="exec" dark :label="`+exec ${exec.length != 0 ? exec : 'example'}.cfg`" value="" @input="updateData"></v-text-field>
+                <v-text-field v-model="exec" dark :label="`+exec ${exec.length != 0 ? exec : 'example'}.cfg`" value="" @input="updateData" clearable></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -268,7 +275,7 @@
             </span>
             
             <span class="txt-input">
-                <v-combobox v-model="fps_max" dark :items="framelimits" :label="`+fps_max ${fps_max.length != 0 ? fps_max : '0'}`" value="" @input="updateData"></v-combobox>
+                <v-combobox v-model="fps_max" dark :items="framelimits" :label="`+fps_max ${fps_max.length != 0 ? fps_max : '0'}`" value="" @input="updateData" clearable></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -277,7 +284,7 @@
                 </v-tooltip>
             </span>
             <span class="txt-input">
-                <v-combobox :items="sugthreads" v-model="threads" dark :label="`-threads ${threads}`" value="" @input="updateData"></v-combobox>
+                <v-combobox :items="sugthreads" v-model="threads" dark :label="`-threads ${threads}`" value="" @input="updateData" clearable></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -286,7 +293,7 @@
                 </v-tooltip>
             </span>
             <span class="txt-input">
-                <v-combobox :items="languages" v-model="lang" dark :label="`-language ${lang}`" value="" @input="updateData"></v-combobox>
+                <v-combobox :items="languages" v-model="lang" dark :label="`-language ${lang}`" value="" @input="updateData" clearable></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -296,7 +303,7 @@
             </span>
             
             <span class="txt-input">
-                <v-text-field v-model="width" dark :label="`-width ${width}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')"></v-text-field>
+                <v-text-field v-model="width" dark :label="`-width ${width}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')" clearable></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -305,7 +312,7 @@
                 </v-tooltip>
             </span>
             <span class="txt-input">
-                <v-text-field v-model="height" dark :label="`-height ${height}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')"></v-text-field>
+                <v-text-field v-model="height" dark :label="`-height ${height}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')" clearable></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -315,7 +322,7 @@
             </span>
             
             <span class="txt-input">
-                <v-text-field v-model="x" dark :label="`-x ${x}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')"></v-text-field>
+                <v-text-field v-model="x" dark :label="`-x ${x}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')" clearable></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -325,7 +332,7 @@
             </span>
             
             <span class="txt-input">
-                <v-text-field v-model="y" dark :label="`-y ${y}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')"></v-text-field>
+                <v-text-field v-model="y" dark :label="`-y ${y}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')" clearable></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
