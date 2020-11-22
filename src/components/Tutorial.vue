@@ -5,7 +5,7 @@
         </h2>
         <v-stepper dark non-linear show v-model="e1">
             <v-stepper-header>
-                <v-stepper-step step="1" :complete="e1" color="amber darken-2">Properties</v-stepper-step>
+                <v-stepper-step step="1" :complete="e1" color="amber darken-2">Open Properties</v-stepper-step>
                 <v-divider></v-divider>
                 <v-stepper-step step="2" color="amber darken-2">Set Launch Options</v-stepper-step>
             </v-stepper-header>

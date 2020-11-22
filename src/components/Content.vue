@@ -239,10 +239,8 @@
                 </v-tooltip>
             </span>
 
-            <br>
-
-            <span>
-                <v-text-field v-model="tickrate" dark :label="`-tickrate ${tickrate}`" value="" @input="updateData"></v-text-field>
+            <span class="txt-input">
+                <v-combobox v-model="tickrate" dark :items="tickrates" :label="`-tickrate ${tickrate}`" value="" @input="updateData"></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -250,8 +248,8 @@
                     <span>This launch option sets the tick rate of any server/single player game you run from your client to the number that you replace [tick rate] with ("-tickrate 128" recommended). In effect, any "Offline With Bots" games you play will be ran at this tickrate.</span>
                 </v-tooltip>
             </span>
-            <span>
-                <v-text-field v-model="refresh" dark :label="`-refresh ${refresh}`" value="" @input="updateData"></v-text-field>
+            <span class="txt-input">
+                <v-combobox v-model="refresh" dark :items="refreshrates" :label="`-refresh ${refresh}`" value="" @input="updateData"></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -259,7 +257,7 @@
                     <span>The -refresh launch option sets the refresh rate of your client: replace [refresh rate] with your desired refresh rate. The refresh rate (in hz) is how many times per second your monitor will update - at 60hz, your monitor is effectively showing 60 frames per second. For 144hz monitors, set this to "-refresh 144" so that your game refreshes 144 times a second.</span>
                 </v-tooltip>
             </span>
-            <span>
+            <span class="txt-input">
                 <v-text-field v-model="exec" dark :label="`+exec ${exec.length != 0 ? exec : 'example'}.cfg`" value="" @input="updateData"></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
@@ -269,8 +267,8 @@
                 </v-tooltip>
             </span>
             
-            <span>
-                <v-text-field v-model="fps_max" dark :label="`+fps_max ${fps_max.length != 0 ? fps_max : '0'}`" value="" @input="updateData"></v-text-field>
+            <span class="txt-input">
+                <v-combobox v-model="fps_max" dark :items="framelimits" :label="`+fps_max ${fps_max.length != 0 ? fps_max : '0'}`" value="" @input="updateData"></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -278,8 +276,8 @@
                     <span>This launch option sets the maximum frames-per-second your game will run at. Replace [amount] with the amount you want to limit your game to. Setting it to 0 ("-fps_max 0") will remove any limit, making your game run at the highest FPS possible.</span>
                 </v-tooltip>
             </span>
-            <span>
-                <v-text-field v-model="threads" dark :label="`-threads ${threads}`" value="" @input="updateData"></v-text-field>
+            <span class="txt-input">
+                <v-combobox :items="sugthreads" v-model="threads" dark :label="`-threads ${threads}`" value="" @input="updateData"></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -287,8 +285,8 @@
                     <span>This launch option sets the amount of processor threads that CS:GO will use (e.g. -threads 4 will make CS:GO use 4 threads). We recommend that you do not use this launch option as it can cause instability and other problems - generally, CS:GO does a good job of managing its thread usage.</span>
                 </v-tooltip>
             </span>
-            <span>
-                <v-text-field v-model="lang" dark :label="`-language ${lang}`" value="" @input="updateData"></v-text-field>
+            <span class="txt-input">
+                <v-combobox :items="languages" v-model="lang" dark :label="`-language ${lang}`" value="" @input="updateData"></v-combobox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
                         <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
@@ -297,7 +295,7 @@
                 </v-tooltip>
             </span>
             
-            <span>
+            <span class="txt-input">
                 <v-text-field v-model="width" dark :label="`-width ${width}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')"></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
@@ -306,7 +304,7 @@
                     <span>This launch option sets the width of your CS:GO window in pixels (e.g. "-width 1920").</span>
                 </v-tooltip>
             </span>
-            <span>
+            <span class="txt-input">
                 <v-text-field v-model="height" dark :label="`-height ${height}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')"></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
@@ -316,7 +314,7 @@
                 </v-tooltip>
             </span>
             
-            <span>
+            <span class="txt-input">
                 <v-text-field v-model="x" dark :label="`-x ${x}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')"></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
@@ -326,7 +324,7 @@
                 </v-tooltip>
             </span>
             
-            <span>
+            <span class="txt-input">
                 <v-text-field v-model="y" dark :label="`-y ${y}`" value="" @input="updateData" :disabled="selected.includes('-fullscreen')"></v-text-field>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
@@ -347,21 +345,72 @@ export default {
             result: "",
             tickrate: "",
             fixedTickrate: "",
+            tickrates: [
+                "64",
+                "128"
+            ],
 
             refresh: "",
             fixedRefresh: "",
+            refreshrates: [
+                "60",
+                "75",
+                "90",
+                "120",
+                "144",
+                "165",
+                "240",
+                "360"
+            ],
 
             exec: "",
             fixedExec: "",
 
             fps_max: "",
             fixedFps_max: "",
+            framelimits: [
+                "0",
+                "60",
+                "120",
+                "144",
+                "165",
+                "240",
+                "300",
+                "360"
+            ],
 
             threads: "",
             fixedThreads: "",
+            sugthreads: [
+                "2",
+                "4",
+                "6",
+                "8",
+                "12",
+                "24",
+                "32"
+            ],
 
             lang: "",
             fixedLang: "",
+            languages: [
+                "english",
+                "czech",
+                "danish",
+                "dutch",
+                "finnish",
+                "french",
+                "german",
+                "hungarian",
+                "italian",
+                "japanese",
+                "korean",
+                "norwegian",
+                "polish",
+                "portuguese",
+                "romanian",
+                "russian"
+            ],
 
             width: "",
             fixedWidth: "",
@@ -437,6 +486,10 @@ export default {
     margin-bottom: 2em;
     text-align: left;
     
+}
+
+.txt-input {
+    width: 200px;
 }
 
 #result {
