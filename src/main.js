@@ -3,10 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import VueMeta from 'vue-meta';
 
-Vue.config.productionTip = false
-import VueClipboard from 'vue-clipboard2'
-
-Vue.use(VueClipboard)
+Vue.config.productionTip = false;
 Vue.use(VueMeta);
 
 new Vue({
