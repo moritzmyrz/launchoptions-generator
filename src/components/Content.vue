@@ -12,7 +12,7 @@
         height.length != 0 || 
         y.length != 0 ||
         x.length != 0 ||
-        r_dynamic != true
+        r_dynamic != false
         ">
             {{ selected.join(" ") }}
             <span v-if="tickrate.length != 0">{{fixedTickrate}}</span>
@@ -25,7 +25,7 @@
             <span v-if="height.length != 0">{{fixedHeight}}</span>
             <span v-if="y.length != 0">{{fixedY}}</span>
             <span v-if="x.length != 0">{{fixedX}}</span>
-            <span v-if="r_dynamic != true">+r_dynamic 0</span>
+            <span v-if="r_dynamic != false">+r_dynamic 0</span>
 
         </div>
         <div id="result" v-else>
@@ -117,15 +117,6 @@
             </span>
 
             <span>
-                <v-checkbox v-model="selected" label="nopreload" value="-nopreload" :disabled="selected.includes('+cl_forcepreload 1')" dark ></v-checkbox>
-                <v-tooltip bottom max-width="24em">
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
-                    </template>
-                    <span>This launch option forces models not to be preloaded. Whilst this will have a different effect for every computer, chances are, this command will make games/maps load faster, but may cause worse performance during actual gameplay. This is because models not preloaded when the map/game is loading will need to be loaded at a later time, likely at the exact moment they are needed, and this will likely add extra latency. For example, if you have preloading disabled and enter an area of a map that requires you load a new model, you will need to wait for the game to load that model from your disk (slow) to memory/cache, adding latency - with preloading enabled, the model would already be in your memory, decreasing the amount of time it takes for the game to access and render that model.</span>
-                </v-tooltip>
-            </span>
-            <span>
                 <v-checkbox v-model="selected" label="nohltv" value="-nohltv" dark></v-checkbox>
                 <v-tooltip bottom max-width="24em">
                     <template v-slot:activator="{ on, attrs }">
@@ -202,6 +193,25 @@
                 </v-tooltip>
             </span>
 
+            
+            <span>
+                <v-checkbox v-model="selected" label="nopreload" value="-nopreload" :disabled="selected.includes('+cl_forcepreload 1')" dark ></v-checkbox>
+                <v-tooltip bottom max-width="24em">
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
+                    </template>
+                    <span>This launch option forces models not to be preloaded. Whilst this will have a different effect for every computer, chances are, this command will make games/maps load faster, but may cause worse performance during actual gameplay. This is because models not preloaded when the map/game is loading will need to be loaded at a later time, likely at the exact moment they are needed, and this will likely add extra latency. For example, if you have preloading disabled and enter an area of a map that requires you load a new model, you will need to wait for the game to load that model from your disk (slow) to memory/cache, adding latency - with preloading enabled, the model would already be in your memory, decreasing the amount of time it takes for the game to access and render that model.</span>
+                </v-tooltip>
+            </span>
+            <span>
+                <v-checkbox  v-model="r_dynamic" :label="`r_dynamic 0`" dark></v-checkbox>
+                <v-tooltip bottom max-width="24em">
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
+                    </template>
+                    <span>Like some other "launch options" in this list, this is a console command commonly mislabeled as a launch option. Use either "+r_dynamic 0" to disable dynamic lighting or "+r_dynamic 1" to enable it (default). Setting this to 0 can improve FPS slightly but will remove some lighting features from the game, like the flash from flashbangs when they are near smokes, which can cause the negatives of no dynamic lighting to outweigh the positives.</span>
+                </v-tooltip>
+            </span>
 
             <span>
                 <v-text-field v-model="tickrate" dark :label="`-tickrate ${tickrate}`" value="" @input="updateData"></v-text-field>
@@ -297,16 +307,6 @@
                     <span>This launch option sets the position of your CS:GO window on the Y axis of your monitor. In other words, this sets how far down from the top of your screen CS:GO should be. For example "-y 100" would make CS:GO start 100 pixels down from the top of your screen (there would be a 100 pixel gap between the top of your screen and the CS:GO window).</span>
                 </v-tooltip>
             </span>
-            
-            <span>
-                <v-switch  v-model="r_dynamic" :label="`r_dynamic ${r_dynamic == true ? '1' : '0'}`" dark></v-switch>
-                <v-tooltip bottom max-width="24em">
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-icon size="20" class="help-ico" color="grey lighten-4" v-bind="attrs" v-on="on">mdi-help-circle-outline</v-icon>
-                    </template>
-                    <span>Like some other "launch options" in this list, this is a console command commonly mislabeled as a launch option. Use either "+r_dynamic 0" to disable dynamic lighting or "+r_dynamic 1" to enable it (default). Setting this to 0 can improve FPS slightly but will remove some lighting features from the game, like the flash from flashbangs when they are near smokes, which can cause the negatives of no dynamic lighting to outweigh the positives.</span>
-                </v-tooltip>
-            </span>
         </v-container>
     </div>
 </template>
@@ -346,7 +346,7 @@ export default {
             y: "",
             fixedY: "",
 
-            r_dynamic: true,
+            r_dynamic: false,
 
             fullscreen: false,
 
