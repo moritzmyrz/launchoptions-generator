@@ -17,11 +17,9 @@
                 </v-stepper-content>
                 <v-stepper-content step="2" id="step2">
                     <img src="https://totalcsgo.com/blog/images/csgo-launch-options.png" alt="Then to open the Launch Options window, press 'Set Launch Options...'" id="img2">
+                    <p>To copy your launch options, click your launch options above to copy them.</p>
                     <p>Then to open the Launch Options window, press 'Set Launch Options...'</p>
-                    <p>Only type in the launch options you want to set in the text box and select OK to set them. For them to take impact, restart your CS: GO. When you're having issues:</p>
-                    <p> • Make sure that the launch options you mentioned are space-separated.</p>
-                    <p> • Make sure the launch options don't contain quotes around them (") or any other odd characters, the only characters that should be in launch options are letters, numbers, and these: +, -, and _.</p>
-                    <p> • Most (if not all) launch options begin with - or +, if there's no + or - before a launch option in the launch options, it's usually the one that creates issues.</p>
+                    <p>Paste your launch options in, and click OK.</p>
                 </v-stepper-content>
             </v-stepper-items>
         </v-stepper>

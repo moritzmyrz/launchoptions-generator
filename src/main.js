@@ -4,6 +4,9 @@ import vuetify from './plugins/vuetify';
 import VueMeta from 'vue-meta';
 
 Vue.config.productionTip = false
+import VueClipboard from 'vue-clipboard2'
+
+Vue.use(VueClipboard)
 Vue.use(VueMeta);
 
 new Vue({

@@ -1,5 +1,31 @@
 <template>
     <div id="content">
+        <template>
+            <v-row justify="center">
+                <v-dialog
+                v-model="copyDialog"
+                persistent
+                max-width="400"
+                >
+                <v-card>
+                    <v-card-title class="headline">
+                        <v-icon color="green accent-4" id="copiedIcon">mdi-check-circle</v-icon>  Launch Options Copied
+                    </v-card-title>
+                    <v-card-text>Follow the tutorial below to enable your launch options.</v-card-text>
+                    <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        color="green darken-1"
+                        text
+                        @click="copyDialog = false"
+                    >
+                        OK
+                    </v-btn>
+                    </v-card-actions>
+                </v-card>
+                </v-dialog>
+            </v-row>
+        </template>
         <div id="result" v-if="
         selected.length != 0 || 
         tickrate.length != 0 || 
@@ -13,7 +39,7 @@
         y.length != 0 ||
         x.length != 0 ||
         r_dynamic != false
-        ">
+        " @click="copy"> 
             {{ selected.join(" ") }}
             <span v-if="tickrate.length != 0">{{fixedTickrate}}</span>
             <span v-if="refresh.length != 0">{{fixedRefresh}}</span>
@@ -25,11 +51,11 @@
             <span v-if="height.length != 0">{{fixedHeight}}</span>
             <span v-if="y.length != 0">{{fixedY}}</span>
             <span v-if="x.length != 0">{{fixedX}}</span>
-            <span v-if="r_dynamic != false">+r_dynamic 0</span>
+            <span v-if="r_dynamic != false"> +r_dynamic 0</span>
 
         </div>
-        <div id="result" v-else>
-            -example select your launch options below!
+        <div id="result" v-else @click="copy">
+            -example select your launch options below, and click me to copy!
         </div>
         <v-container fluid class="boxes">
             <span>
@@ -317,6 +343,7 @@
 export default {
     data: () => {
         return {
+            copyDialog: false,
             result: "",
             tickrate: "",
             fixedTickrate: "",
@@ -379,6 +406,16 @@ export default {
                 this.fixedExec = ` +exec example.cfg`
             else
                 this.fixedExec = ` +exec ${this.exec}.cfg`
+        },
+        copy () {
+            const result = document.getElementById("result");
+            var text = result.innerText;
+            navigator.clipboard.writeText(text).then(function() {
+            console.log('Async: Copying to clipboard was successful!');
+            }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+            });
+            this.copyDialog = true
         }
     }
 }
@@ -403,6 +440,14 @@ export default {
     padding: 7px;
     color: white;
     font-family: 'Source Code Pro', monospace;
+}
+
+#result:hover {
+    cursor: pointer;
+}
+
+#copiedIcon {
+    margin-right: .5em;
 }
 
 .boxes {
