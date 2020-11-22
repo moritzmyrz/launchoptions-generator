@@ -20,7 +20,7 @@ import Tutorial from './components/Tutorial';
 export default {
   name: 'App',
   metaInfo: {
-    title: 'Launch Option Generator'
+    title: 'CS: GO Launch Option Generator'
   },
 
   components: {
