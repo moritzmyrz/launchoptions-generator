@@ -2,7 +2,7 @@
   <v-app>
       <div id="app1">
         <h1 id="title">
-          CS: GO Launch Options Generator
+          CS: GO Launch Option Generator
           <h3>
             by Moritz Myrseth
           </h3>
