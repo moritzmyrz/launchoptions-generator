@@ -354,6 +354,7 @@ export default {
             fixedTickrate: "",
             tickrates: [
                 "64",
+                "102.4",
                 "128"
             ],
 
