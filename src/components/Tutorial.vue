@@ -3,23 +3,43 @@
         <h2>
             How to Set Launch Options
         </h2>
-        <v-stepper dark non-linear >
+        <v-stepper dark non-linear show v-model="e1">
             <v-stepper-header>
-                <v-stepper-step editable step="1">Properties</v-stepper-step>
+                <v-stepper-step step="1" :complete="e1" color="amber darken-2">Properties</v-stepper-step>
                 <v-divider></v-divider>
-                <v-stepper-step editable step="2">Set Launch Options</v-stepper-step>
+                <v-stepper-step step="2" color="amber darken-2">Set Launch Options</v-stepper-step>
             </v-stepper-header>
 
             <v-stepper-items>
                 <v-stepper-content step="1" id="step1">
                     <img src="https://totalcsgo.com/blog/images/csgo-properties.png" alt="Thankfully, setting up launch options via Steam is very straightforward. Open Steam, pick Library, right-click Counter-Strike: Global Offensive, and then click Properties." id="img1">
                     <p>Thankfully, setting up launch options via Steam is very straightforward. Open Steam, pick Library, right-click Counter-Strike: Global Offensive, and then click Properties.</p>
+                    <v-btn
+                        elevation="7"
+                        medium
+                        raised
+                        id="nextBtn"
+                        color="green darken-1"
+                        @click="e1 = 2"
+                    >
+                        Next<v-icon>mdi-chevron-right</v-icon>
+                    </v-btn>
                 </v-stepper-content>
                 <v-stepper-content step="2" id="step2">
                     <img src="https://totalcsgo.com/blog/images/csgo-launch-options.png" alt="Then to open the Launch Options window, press 'Set Launch Options...'" id="img2">
                     <p>To copy your launch options, click your launch options above to copy them.</p>
                     <p>Then to open the Launch Options window, press 'Set Launch Options...'</p>
                     <p>Paste your launch options in, and click OK.</p>
+                    <v-btn
+                        elevation="7"
+                        medium
+                        raised
+                        id="nextBtn"
+                        color="red darken-1"
+                        @click="e1 = 1"
+                    >
+                        <v-icon>mdi-chevron-left</v-icon>Previous
+                    </v-btn>
                 </v-stepper-content>
             </v-stepper-items>
         </v-stepper>
@@ -30,7 +50,7 @@
 export default {
     data: () => {
         return {
-            model: 0
+            e1: 1
         }
     }
 }
@@ -50,6 +70,11 @@ export default {
     color: white;
     text-align: center;
     font-size: 36px;
+}
+
+#nextBtn {
+    align-self: center;
+    justify-self: center;
 }
 
 #step1, #step2 {
