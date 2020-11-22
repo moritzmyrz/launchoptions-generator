@@ -3,6 +3,9 @@
       <div id="app1">
         <h1 id="title">
           CS: GO Launch Options Generator
+          <h3>
+            by Moritz Myrseth
+          </h3>
         </h1>
         <Content></Content>
     </div>
@@ -28,6 +31,7 @@ export default {
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 html {
   width: 100%;
   height: 100%;
@@ -57,9 +61,19 @@ html {
   margin-bottom: 1em;
 }
 
+#title > h3 {
+  margin: 0;
+  font-size: 25px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: right;
+}
+
 @media screen and (max-width: 900px) {
   #title {
     font-size: 34px;
+  }
+  #title > h3 {
+    font-size: 17px;
   }
 }
 
