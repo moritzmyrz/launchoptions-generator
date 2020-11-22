@@ -213,6 +213,8 @@
                 </v-tooltip>
             </span>
 
+            <br>
+
             <span>
                 <v-text-field v-model="tickrate" dark :label="`-tickrate ${tickrate}`" value="" @input="updateData"></v-text-field>
                 <v-tooltip bottom max-width="24em">

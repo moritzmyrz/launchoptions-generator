@@ -17,6 +17,9 @@ import Content from './components/Content';
 
 export default {
   name: 'App',
+  metaInfo: {
+    title: 'Launch Option Generator'
+  },
 
   components: {
     Content
