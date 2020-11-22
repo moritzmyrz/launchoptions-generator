@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDJ7Fkr3pu3k37ngNiMppWDXTBesZrPpeZmT11csclStfbcUKKpZJ/+dGTbTUhxAYFihNfQTVkx/L43PRxYRgpacCa48cxEidM6ZOjmwvURk/bp7HNdUO9f/30fp2ujhlDAW+ZA0qdX0fiu2xxKgVnsWOnlEv69q2YpAwnYfJRP5oqVGQu6xOtX8w8chiVBNYxXgWhT7LdTXaX1lQxZ2yGuVTNfo2X4o6TQnwBk44kaocP4kX1kAyGpmMCuniuGHFa4y+S6SMviwpbQsZ94ORO6PIwdOiNb7oZPNtCoQO9mcXWOmTBtPfx8hA74H5K3/kPpjZXmIDIe9obpZK322bzaq536BuLjiNbPzS3kqHSLlKbr/DvvsI7bVMlp+ENIctFRMe9IGyiUmjH0pN9BoYRwr7vyP5tchqCDB3Ib5NMq9PXye2jM6GUuEuv9o9xrTyGOFI849c9XMopgcvRu0jji1EqBYFhU7i/qzJX0I3DfLgwz6MLJSyytrws8ty8aMKqCSV1g3Mm8EK3oow3iqY8aFQwrQZdwunhMV67AAADrQQV6qULr2GVm0rlliOet4u6jKr4IlM1TTlqr5XDFiYdgNHm29v5NSh+HZX2pqlHY0/FtE3oUDqsRIwFUkfhVe9NXA5oFrAsEfpCnxL2377vm9Rd+tlnok7g8hOPpSAM7Gw=="
   },
   "dependencies": {
     "core-js": "^3.6.5",
