@@ -60,11 +60,23 @@ export default {
 #list > li::marker {
     margin-left: 3em;
 }
-#img1, #img2 {
-    float: left;
-    margin-right: 1em;
+@media screen and (max-width: 1500px) {
+    #content {
+        width: 90%;
+    }
+}
+@media screen and (min-width: 1400px) {
+    #img1, #img2 {
+        float: left;
+        margin-right: 1em;
+    }
 }
 .theme--dark.v-stepper {
     background: #3B3E54;
+}
+#img1, #img2 {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
 }
 </style>
