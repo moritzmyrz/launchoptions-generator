@@ -8,12 +8,14 @@
           </h3>
         </h1>
         <Content></Content>
+        <Tutorial></Tutorial>
     </div>
   </v-app>
 </template>
 
 <script>
 import Content from './components/Content';
+import Tutorial from './components/Tutorial';
 
 export default {
   name: 'App',
@@ -22,12 +24,9 @@ export default {
   },
 
   components: {
-    Content
-  },
-
-  data: () => ({
-    //
-  }),
+    Content,
+    Tutorial
+  }
 };
 </script>
 
