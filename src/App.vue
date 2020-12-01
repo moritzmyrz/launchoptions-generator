@@ -10,6 +10,19 @@
         <Content></Content>
         <Tutorial></Tutorial>
     </div>
+    <v-btn
+      class="mx-2"
+      fab
+      dark
+      color="pink darken-2"
+      id="contribute-btn"
+      href="https://github.com/moritzmyrz/launchoptions-generator"
+      target="_blank"
+    >
+      <v-icon dark>
+        mdi-github
+      </v-icon>
+    </v-btn>
   </v-app>
 </template>
 
@@ -38,6 +51,13 @@ html {
   width: 100%;
   height: 100%;
 }
+
+#contribute-btn {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+}
+
 #app {
   background: #4a4e69;
   width: 100%;
