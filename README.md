@@ -1,24 +1,4 @@
-# launchoptions-generator
+# CS: GO Launch Options Generator
+This is a project I didn't find anywhere else, so I decided to create my own with Vue.js.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+You can find the project at https://lo-gen.myrz.me/, open for everyone to use.
